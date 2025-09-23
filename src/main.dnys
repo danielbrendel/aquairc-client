@@ -1,6 +1,6 @@
-# Sample IRC chat client
+# AquaShell IRC chat client main script file
 
-hideconsole;
+#hideconsole;
 
 require "strings";
 require "forms";
@@ -31,13 +31,13 @@ set serverIdent <= "";
 
 getscriptpath scriptpath;
 
-ini_read "%scriptpath/settings.ini" "settings" "server" INI_Server;
-ini_read "%scriptpath/settings.ini" "settings" "port" INI_Port;
-ini_read "%scriptpath/settings.ini" "settings" "oauth" INI_OAuthToken;
-ini_read "%scriptpath/settings.ini" "settings" "caps" INI_Caps;
-ini_read "%scriptpath/settings.ini" "settings" "username" INI_Username;
-ini_read "%scriptpath/settings.ini" "settings" "channel" INI_Channel;
-ini_read "%scriptpath/settings.ini" "settings" "verbose" INI_Verbose;
+ini_read "%scriptpath/config/settings.ini" "settings" "server" INI_Server;
+ini_read "%scriptpath/config/settings.ini" "settings" "port" INI_Port;
+ini_read "%scriptpath/config/settings.ini" "settings" "oauth" INI_OAuthToken;
+ini_read "%scriptpath/config/settings.ini" "settings" "caps" INI_Caps;
+ini_read "%scriptpath/config/settings.ini" "settings" "username" INI_Username;
+ini_read "%scriptpath/config/settings.ini" "settings" "channel" INI_Channel;
+ini_read "%scriptpath/config/settings.ini" "settings" "verbose" INI_Verbose;
 
 set verbose <= %INI_Verbose;
 
@@ -288,7 +288,7 @@ bitop "or" (%WS_OVERLAPPED, %WS_SYSMENU, %WS_VISIBLE) wndstyles;
 wnd_spawnform "frmMain" "%FORM_TITLE" 200 300 767 354 %wndstyles frmMain;
 wnd_isformvalid frmMain bres;
 
-wnd_setformicon "frmMain" "app.ico";
+wnd_setformicon "frmMain" "%scriptpath/assets/app.ico";
 
 wnd_spawntextbox "frmMain" "txtChat" 1 1 600 290 "";
 wnd_settextboxmultiline "frmMain" "txtChat";

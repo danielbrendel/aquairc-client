@@ -1,2 +1,2 @@
 @echo off
-start "" dnyAquaShell.exe irc-client.dnys
+start "" dnyAquaShell.exe src/main.dnys
