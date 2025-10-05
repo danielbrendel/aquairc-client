@@ -1,6 +1,6 @@
 # AquaShell IRC chat client main script file
 
-#hideconsole;
+hideconsole;
 
 require "strings";
 require "forms";
