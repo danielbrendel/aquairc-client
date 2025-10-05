@@ -1,0 +1,29 @@
+# AquaShell IRC chat client config manager script file
+
+global INI_Server string;
+global INI_Port string;
+global INI_OAuthToken string;
+global INI_Caps string;
+global INI_Username string;
+global INI_Channel string;
+global INI_Verbose string;
+
+function CFG_ReadSettings bool(inifile string)
+{
+    local checkfile bool;
+
+    result false;
+
+    fexists "%inifile" checkfile;
+    if (%checkfile, -eq, true) {
+        ini_read "%inifile" "settings" "server" INI_Server;
+        ini_read "%inifile" "settings" "port" INI_Port;
+        ini_read "%inifile" "settings" "oauth" INI_OAuthToken;
+        ini_read "%inifile" "settings" "caps" INI_Caps;
+        ini_read "%inifile" "settings" "username" INI_Username;
+        ini_read "%inifile" "settings" "channel" INI_Channel;
+        ini_read "%inifile" "settings" "verbose" INI_Verbose;
+
+        result true;
+    };
+};
